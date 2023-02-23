@@ -22,14 +22,19 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Profiles',
         key: 'id',
       },
-
     workPreference: {
       type: DataTypes.ENUM('Early Bird', 'Night Owl'),
       defaultValue: 'Early Bird'
     },
-    favoriteColor: DataTypes.STRING,
-    favoriteMusic: DataTypes.STRING
-  }, {
+    favoriteColor: {
+      type: DataTypes.ENUM('Red', 'Yellow', 'Blue', 'Orange', 'Green', 'Violet'),
+      defaultValue: 'Blue'
+    },  
+    favoriteMusic: {
+      type: DataTypes.ENUM('Rock', 'Pop', 'Hip Hop', 'Rythm and Blues', 'Jazz', 'Country', 'Blues', 'Electronic Dance Music', 'Classical', 'Heavy Metal', 'Alternative', 'Reggae', 'Funk', 'Folk', 'Disco'),
+      defaultValue: 'Rock'
+    }
+  }, 
     sequelize,
     modelName: 'Preference',
   });

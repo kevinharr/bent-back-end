@@ -10,7 +10,13 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       profileId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Profiles',
+          key: 'id'
+        }
       },
       workPreference: {
         type: Sequelize.STRING
