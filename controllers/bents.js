@@ -30,11 +30,21 @@ async function createBent(req, res) {
       res.status(500).json(error)
     }
   }
-  
 
+  const deleteBent = async (req, res) => {
+    try {
+      const numberOfRowsRemoved = await Bent.destroy(
+        { where: {id: req.params.id } }
+      )
+      res.status(200).json(numberOfRowsRemoved)
+    } catch (error) {
+      res.status(500).json(error)
+    }
+  }
 
   module.exports = {
     createBent,
     index,
-    update
+    update,
+    delete: deleteBent
   }

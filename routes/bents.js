@@ -11,7 +11,8 @@ const { decodeUserFromToken, checkAuth } = middleware
 router.use(decodeUserFromToken)
 router.post('/', checkAuth, bentsCtrl.createBent)
 router.get('/', checkAuth, bentsCtrl.index)
-router.put('/:id', checkAuth, bentsCtrl.index)
+router.put('/:id', checkAuth, bentsCtrl.update)
+router.delete('/:id', checkAuth, bentsCtrl.delete)
 
 
 module.exports = router
