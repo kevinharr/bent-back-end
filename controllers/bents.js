@@ -21,10 +21,10 @@ async function createBent(req, res) {
 
   const update = async (req, res) => {
     try {
-      const bent = await Bent.update(
-        req.body,
-        {where: {id: req.params.id }, returning: true }
-      )
+      const bent = await Bent.findByPk(req.params.id)
+        bent.set(req.body)
+        await bent.save()
+      
       res.status(200).json(bent)
     } catch (error) {
       res.status(500).json(error)
