@@ -10,6 +10,7 @@ const { decodeUserFromToken, checkAuth } = middleware
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
 router.post('/', checkAuth, bentsCtrl.createBent)
+router.get('/', checkAuth, bentsCtrl.index)
 
 
 module.exports = router
