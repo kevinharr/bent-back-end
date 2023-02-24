@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Profile.belongsTo(models.User, { foreignKey: 'userId' })
-      Profile.hasOne(models.Preference, { as: 'preference', foreignKey: 'profileId' })
+      Profile.hasOne(models.Bent, { as: 'preference', foreignKey: 'profileId' })
     }
   }
 

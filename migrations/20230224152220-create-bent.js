@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Preferences', {
+    await queryInterface.createTable('Bents', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,13 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       profileId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Profiles',
-          key: 'id'
-        }
+        type: Sequelize.INTEGER
       },
       workPreference: {
         type: Sequelize.STRING
@@ -38,6 +32,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Preferences');
+    await queryInterface.dropTable('Bents');
   }
 };
