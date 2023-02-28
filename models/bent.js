@@ -14,10 +14,29 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Bent.init({
-    profileId: DataTypes.INTEGER,
-    workPreference: DataTypes.STRING,
-    favoriteColor: DataTypes.STRING,
-    favoriteMusic: DataTypes.STRING
+    profileId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Profiles',
+        key: 'id',
+      },
+    workPreference: {
+      type: DataTypes.ENUM('Early Bird', 'Night Owl'),
+      defaulValue: 'Early Bird',
+      allowNull: false,
+    },
+    favoriteColor: {
+      type: DataTypes.ENUM('Yellow', 'Green', 'Blue', 'Violet', 'Red', 'Orange'),
+      defaultValue: 'Blue',
+      allowNull: false,
+    },
+    favoriteMusic: {
+      type: DataTypes.ENUM('Rock', 'Pop', 'Hip Hop', 'Rhythm and Blue', 'Jazz', 'Country', 'Blue', 'Electronic Dance Music', 'Classical', 'Heavy Metal', 'Alternative', 'Reggae', 'Funk', 'Folk', 'Disco'),
+      defaultValue: 'Alternative',
+      allowNull: false,
+    }
+  }
   }, {
     sequelize,
     modelName: 'Bent',
